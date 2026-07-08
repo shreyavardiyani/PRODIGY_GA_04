@@ -46,3 +46,71 @@ The CMP Facades dataset contains paired images of building facade label maps and
 Each sample consists of:
 - **Input Image:** Semantic facade label map
 - **Target Image:** Real building photograph
+
+### Model Architecture
+
+The pix2pix model is based on a **Conditional Generative Adversarial Network (cGAN)** consisting of two neural networks:
+
+#### Generator (U-Net)
+
+- Encoder-decoder architecture with skip connections.
+- Converts semantic facade label maps into realistic building images.
+- Skip connections help preserve spatial information and fine details.
+
+#### Discriminator (PatchGAN)
+
+- Evaluates small image patches instead of the entire image.
+- Distinguishes between real and generated image pairs.
+- Encourages the generator to produce locally realistic outputs.
+
+During training, the Generator and Discriminator compete with each other, gradually improving the quality of the translated images.
+
+### Workflow
+
+1. Load the CMP Facades paired image dataset.
+2. Split each image into input (facade labels) and target (real building).
+3. Resize and normalize images.
+4. Build the U-Net Generator.
+5. Build the PatchGAN Discriminator.
+6. Define Generator and Discriminator loss functions.
+7. Train the cGAN model.
+8. Generate translated building images from facade label maps.
+9. Visualize and evaluate the generated results.
+
+###  Results
+
+#### Dataset Sample
+
+![Dataset Sample](screenshots/dataset_sample.png)
+
+---
+
+#### Input and Target Images
+
+![Input Target Split](screenshots/input_target_split.png)
+
+---
+
+#### U-Net Generator Summary
+
+![Generator Summary](screenshots/generator_summary.png)
+
+---
+
+#### Final Training Result
+
+![Training Result](screenshots/training_result.png)
+
+The generated images progressively improve during training. The model was trained for 50 epochs. The generated images successfully capture the building layout and major structural features. Additional training epochs could further improve sharpness and fine details.
+
+### Learning Outcomes
+
+Through this project, I learned:
+
+- Fundamentals of Conditional GANs (cGANs).
+- Working of the pix2pix architecture.
+- U-Net Generator and PatchGAN Discriminator.
+- Image preprocessing using TensorFlow.
+- Training deep learning models on paired datasets.
+- Image-to-image translation techniques.
+- Managing machine learning projects using Git and GitHub.
