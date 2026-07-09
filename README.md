@@ -1,6 +1,6 @@
 # Task 4: Image-to-Image Translation using Conditional GAN (pix2pix)
 
-## Generative AI Internship @ Prodigy InfoTech
+> **Task 04 - Generative AI Internship @ Prodigy InfoTech**
 
 This project implements an **Image-to-Image Translation** model using a **Conditional Generative Adversarial Network (cGAN)** based on the **pix2pix** architecture. The model learns to translate semantic building facade labels into realistic building photographs using paired image datasets.
 
